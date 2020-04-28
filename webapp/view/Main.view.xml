@@ -1,0 +1,168 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="mydemo.com.brzsapjobs.controller.Main" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<HBox width="100%" id="__hbox0">
+					    <items>
+					        <ComboBox id="mymodule" placeholder="{i18n>Module}" required="true" valueState="Success" selectionChange="onrefreshmain" valueStateText="&quot;{i18n>Module}&quot;">
+					            <items>
+					            	<!--Place your SAP Modules here... :)-->
+					                <core:ListItem text="ABAP" key="ABAP"/>
+					                <core:ListItem text="APO" key="APO"/>
+					                <core:ListItem text="BASIS" key="BASIS"/>
+					                <core:ListItem text="BI" key="BASIS"/>
+					                <core:ListItem text="BPC" key="BPC"/>
+					                <core:ListItem text="CO" key="CO"/>
+					                <core:ListItem text="CRM" key="CRM"/>
+					                <core:ListItem text="CS" key="CS"/>
+					                <core:ListItem text="EWM" key="EWM"/>
+					                <core:ListItem text="FICO" key="FICO"/>
+					                <core:ListItem text="FIORI" key="FIORI"/>
+					                <core:ListItem text="HANA" key="HANA"/>
+					                <core:ListItem text="HR" key="HR"/>
+					                <core:ListItem text="IM" key="IM"/>
+					                <core:ListItem text="MM" key="MM"/>
+					                <core:ListItem text="PM" key="PM"/>
+					                <core:ListItem text="PO" key="PM"/>
+					                <core:ListItem text="PP" key="PP"/>					                
+					                <core:ListItem text="PS" key="PS"/>
+					                <core:ListItem text="QM" key="QM"/>
+					                <core:ListItem text="SCP" key="SCP"/>
+					                <core:ListItem text="SAPUI5" key="SAPUI5"/>
+					                <core:ListItem text="SD" key="SD"/>
+					                <core:ListItem text="WM" key="WM"/>
+					                <!--Just some examples... :)-->
+					                </items>
+					        </ComboBox>
+				        	<Select required="true" valueState="Warning" valueStateText="{i18n>Please}" id="mycountry" change="onrefreshmain">
+					            <items>
+					            	<!--Place your Countries here...Brazil First...:)-->
+					                <core:ListItem text="{i18n>BR}" key="BR"/>					            	
+					            	<core:ListItem text="{i18n>DE}" key="DE"/>
+					            	<core:ListItem text="{i18n>AR}" key="AR"/>
+					            	<core:ListItem text="{i18n>AU}" key="AU"/>
+					            	<core:ListItem text="{i18n>BE}" key="BE"/>
+					                <core:ListItem text="{i18n>CA}" key="CA"/>
+					                <core:ListItem text="{i18n>CL}" key="CL"/>
+					                <core:ListItem text="{i18n>CN}" key="CN"/>
+					                <core:ListItem text="{i18n>DE}" key="DE"/>
+					                <core:ListItem text="{i18n>AE}" key="AE"/>
+									<core:ListItem text="{i18n>SE}" key="SE"/>
+									<core:ListItem text="{i18n>CH}" key="CH"/>
+									<core:ListItem text="{i18n>UY}" key="UY"/>					                
+					                <core:ListItem text="{i18n>ES}" key="ES"/>
+					                <core:ListItem text="{i18n>FI}" key="FI"/>
+									<core:ListItem text="{i18n>US}" key="US"/>
+									<core:ListItem text="{i18n>FR}" key="FR"/>
+									<core:ListItem text="{i18n>IN}" key="IN"/>
+									<core:ListItem text="{i18n>IE}" key="IE"/>
+									<core:ListItem text="{i18n>IT}" key="IT"/>
+									<core:ListItem text="{i18n>JP}" key="JP"/>
+									<core:ListItem text="{i18n>MX}" key="MX"/>
+									<core:ListItem text="{i18n>NO}" key="NO"/>
+									<core:ListItem text="{i18n>IN}" key="IN"/>
+									<core:ListItem text="{i18n>NZ}" key="NZ"/>
+									<core:ListItem text="{i18n>NL}" key="NL"/>
+									<core:ListItem text="{i18n>PE}" key="PE"/>
+									<core:ListItem text="{i18n>PL}" key="PL"/>
+									<core:ListItem text="{i18n>PT}" key="PT"/>	
+									<core:ListItem text="{i18n>GB}" key="GB"/>
+									<core:ListItem text="{i18n>RU}" key="RU"/>
+									<!--Just some examples... :)-->
+					                </items>
+					        </Select>
+					    </items>
+					</HBox>
+					<Table sticky="ColumnHeaders" id="mytable" items="{/Countries}" headerText="{i18n>Table}" itemPress="onopenmap" noDataText="{i18n>nodata}">
+						<columns>
+							<Column hAlign="Center">
+								<Label text="{i18n>job}" design="Bold"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Label text="{i18n>where}" design="Bold"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Label text="{i18n>when}" design="Bold"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Label text="{i18n>company}" design="Bold"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Label text="{i18n>snippet}" design="Bold"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Center">
+								<Label text="{i18n>map}" design="Bold"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Link text="{jobtitle}" target="{url}" href="{url}"/>
+									<Text text="{location}"/>
+									<Text text="{date}"/>
+									<Text text="{company}"/>
+									<Text text="{snippet}"/>
+									<Button width="50px" press="onopenmap" icon="sap-icon://map-2" type="Accept"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					<swipeContent>
+					    <Table xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" sticky="ColumnHeaders" id="mytable_copy" items="{/Countries}" headerText="{i18n>Table}" itemPress="onopenmap" noDataText="{i18n>nodata}">
+					        <columns>
+					            <Column hAlign="Center" id="__column6">
+					                <Label text="{i18n>job}" design="Bold"/>
+					                
+					            </Column>
+					            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" id="__column7">
+					                <Label text="{i18n>where}" design="Bold"/>
+					                
+					            </Column>
+					            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" id="__column8">
+					                <Label text="{i18n>when}" design="Bold"/>
+					                
+					            </Column>
+					            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" id="__column9">
+					                <Label text="{i18n>company}" design="Bold"/>
+					                
+					            </Column>
+					            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" id="__column10">
+					                <Label text="{i18n>snippet}" design="Bold"/>
+					                
+					            </Column>
+					            <Column demandPopin="true" hAlign="Center" id="__column11">
+					                <Label text="{i18n>map}" design="Bold"/>
+					                
+					            </Column>
+					            </columns>
+					        <items>
+					            <ColumnListItem id="__item7-mytable_copy-0">
+					                <cells>
+					                    <Link text="{jobtitle}" target="{url}" href="{url}" id="__link1-mytable_copy-0"/>
+					                    <Text text="{location}" id="__text13-mytable_copy-0"/>
+					                    <Text text="{date}" id="__text14-mytable_copy-0"/>
+					                    <Text text="{company}" id="__text15-mytable_copy-0"/>
+					                    <Text text="{snippet}" id="__text16-mytable_copy-0"/>
+					                    <Button width="50px" press="onopenmap" icon="sap-icon://map-2" type="Accept" id="__button2-mytable_copy-0"/>
+					                    </cells>
+					                
+					            </ColumnListItem>
+					            
+					        </items>
+					        </Table>
+					</swipeContent>
+					</Table>
+				</content>
+				<footer>
+					<Toolbar class="sapContrast sapContrastPlus" width="100%" id="__toolbar1" design="Info">
+						<content>
+							<!--<Image width="60px" height="40px" src="img/nfe.png"/>-->
+							<ToolbarSpacer/>
+							<Button width="80px" id="__button0" icon="sap-icon://refresh" press="onrefreshmain" type="Accept"/>
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
