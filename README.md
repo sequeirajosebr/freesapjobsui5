@@ -15,4 +15,6 @@ PageStart: It brings the last 25 results, and it can be paged at each 25 results
 
 This SAPUI5 code version is running at: https://freesapjobsui5.web.app/
 
+More details here: https://blogs.sap.com/2020/04/28/api-management-as-the-source-for-sap-jobs-search-worldwide-and-some-sapui5-sample/
+
 Regards.
