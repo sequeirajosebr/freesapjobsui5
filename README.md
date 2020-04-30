@@ -2,6 +2,8 @@
 
 Free SAP Job Search, using SAPUI5, and consuming the API Management (Service) + NodeJS Cors solution. Just simple DEMO code here for you to use it as "base" on your solution...
 
+PS: I'm using the https://cors-anywhere.herokuapp.com/ API to avoid CORS issues, it's down sometimes so you can uses your own desired solution to solve this.
+
 The API Management service created is: https://p1153320trial-trial.apim1.hanatrial.ondemand.com:443/p1153320trial/sapjobs 
 
 You should put the parameters on the URL, like this: 
